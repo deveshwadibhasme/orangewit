@@ -169,11 +169,12 @@
     width: 100%;
     z-index: -1;
     transition: all 0.5s ease-in-out;
+    color:#ff5722
 }
 
 .first-slide:has(#slider-btn:hover) #slider-btn a{
     color:#ff5722;
-    border: 0;
+    border: 1px solid black;
 }
 
 #slider-btn::after {
