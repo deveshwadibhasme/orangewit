@@ -1,0 +1,260 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Metrophobic', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+    --orange: #ff5722;
+}
+
+.header {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    max-width: 1380px;
+    min-height: 15px;
+}
+
+.header-content {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    height: 100%;
+    position: relative;
+}
+
+.header .logo {
+    display: flex;
+    height: 65px;
+    width: 155px;
+    position: relative;
+}
+
+.header .logo img {
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    padding: 1px;
+    cursor: pointer;
+}
+
+.header .logo::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    height: 8px;
+    width: 0%;
+    background-color: var(--orange);
+    z-index: -1;
+    transition: width 0.5s ease-out;
+}
+
+.logo:hover::after {
+    width: 100%;
+    background-color: var(--orange);
+    z-index: 3;
+}
+
+.header .menu-icon {
+    font-size: 20px;
+    align-self: center;
+    background-color: var(--orange);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid var(--orange);
+    z-index: 3;
+}
+
+.header .menu-icon i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: azure;
+    z-index: 3;
+}
+
+.menu-icon:hover i,
+.menu-icon:hover {
+    background-color: azure;
+    color: var(--orange);
+}
+
+.hero {
+    margin: 0 auto;
+    position: relative;
+    top: -65px;
+    max-width: 100vw;
+    z-index: 2;
+}
+
+.slider {
+    width: 100%;
+    min-height: 99vh;
+    z-index: 2;
+}
+
+.slider .first-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: hsla(14, 96%, 39%, 0.7);
+    background-image: url(/images/SCADA-slider.jpg);
+    background-size: cover;
+    max-width: 100vw;
+    min-height: 99vh;
+    z-index: 2;
+    background-blend-mode: multiply;
+}
+
+.first-slide .small-text {
+    font-size: 30px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+}
+
+.first-slide .large-text {
+    font-size: 45px;
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+}
+
+.first-slide .medium-text {
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+}
+#slider-btn a{
+    color:white;
+}
+
+.first-slide #slider-btn {
+    font-size: 20px;
+    padding: 10px;
+    width: 240px;
+    margin: 0 auto;
+    background-color: rgb(255, 79, 9);
+    border: 1px solid white;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    font-weight: 600;
+    z-index: 2;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#slider-btn::after {
+    content: '';
+    background-color: rgb(233, 241, 250);
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transition: all 0.5s ease-in-out;
+}
+
+.first-slide:has(#slider-btn:hover) #slider-btn a{
+    color:#ff5722;
+    border: 0;
+}
+
+#slider-btn:hover::after {
+    transition: all 0.5s ease-in-out;
+    bottom: -20%;
+    animation: wave 2s alternate infinite;
+}
+
+.header-content .drop-menu{
+    display: block;
+    margin: auto;
+    position: fixed;
+    transform: translateY(-550%);
+    inset: 0;
+    z-index: 5;
+    height: 350px;
+    width: 350px;
+    background-color: rgba(248, 114, 61, 0.568);
+    backdrop-filter: blur(5px);
+    padding: 30px 0px 10px;
+    transition: background-color 0.2s ease-in;
+    transition: inset 0.3s ease-in;
+    transition: transform 0.6s ease-in-out;
+    transform-origin:center;
+    border: 1px solid white;
+    border-radius:10px;
+}
+
+.header-content .open{
+    inset: 1;
+    position: fixed;
+    transform: translateY(0);
+}
+
+
+.header-content .drop-menu ul{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    color:#fff;
+}
+
+.header-content .drop-menu ul li:hover{
+    color:#ff5722;
+    cursor: pointer;
+}
+
+.header-content:has(ul li:hover) .drop-menu{
+   background-color: rgba(240, 248, 255, 0.568);
+   backdrop-filter: blur(5px);
+}
+
+@keyframes wave {
+    from {
+        border-top-right-radius: 0px;
+        scale: 1.5;
+    }
+
+    to {
+        border-top-left-radius: 20px;
+        scale: 1.1;
+    }
+}
+
+@media (max-width:600px) {
+    .first-slide .small-text{
+        font-size: 18px;
+    }
+    .first-slide .large-text{
+        font-size: 30px;
+    }
+    .first-slide .medium-text{
+        font-size: 15px;
+    }
+    .header-content .drop-menu{
+        transform-origin:100% 0% ;
+        border-radius:30px;
+        width: 300px;
+        
+    }
+}
