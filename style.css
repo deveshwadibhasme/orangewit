@@ -176,7 +176,7 @@
     border: 0;
 }
 
-#slider-btn:hover::after {
+#slider-btn::after {
     transition: all 0.5s ease-in-out;
     bottom: -20%;
     animation: wave 2s alternate infinite;
