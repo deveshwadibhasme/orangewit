@@ -48,10 +48,10 @@
     position: absolute;
     top: -1px;
     height: 8px;
-    width: 0%;
+    width: 1%;
     background-color: var(--orange);
     z-index: -1;
-    transition: width 0.5s ease-out;
+    transition: width 0.5s linear;
 }
 
 .logo:hover::after {
@@ -138,7 +138,8 @@
     text-align: center;
 }
 #slider-btn a{
-    color:white;
+    color:#ff5722;
+    transition: letter-spacing 0.4s linear;
 }
 
 .first-slide #slider-btn {
@@ -151,12 +152,12 @@
     text-transform: uppercase;
     color: #ff5722;
     border-radius: 5px;
-    transition: all 0.2s ease-in-out;
     font-weight: 600;
     z-index: 2;
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    letter-spacing: 0px;
 }
 
 #slider-btn::after {
@@ -169,29 +170,24 @@
     width: 100%;
     z-index: -1;
     transition: all 0.5s ease-in-out;
-    color:#ff5722
-}
-
-.first-slide:has(#slider-btn:hover) #slider-btn a{
-    color:#ff5722;
-    border: 1px solid black;
-}
-
-#slider-btn::after {
-    transition: all 0.5s ease-in-out;
     bottom: -20%;
     animation: wave 2s alternate infinite;
 }
 
+#slider-btn a:hover{
+    letter-spacing: 2px;
+}
+
 .header-content .drop-menu{
-    display: block;
+    display: flex;
+    justify-content: center;
     margin: auto;
     position: fixed;
     transform: translateY(-550%);
     inset: 0;
     z-index: 5;
     height: 350px;
-    width: 350px;
+    width: 100%;
     background-color: rgba(248, 114, 61, 0.568);
     backdrop-filter: blur(5px);
     padding: 30px 0px 10px;
@@ -199,8 +195,20 @@
     transition: inset 0.3s ease-in;
     transition: transform 0.6s ease-in-out;
     transform-origin:center;
-    border: 1px solid white;
-    border-radius:10px;
+    border-radius:5px;
+}
+
+
+.close-btn{
+    position: absolute;
+    bottom: 10px;
+    font-size: 2rem;
+    background-color: #ff562241;
+    backdrop-filter: blur(30px);
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    cursor: grab;
 }
 
 .header-content .open{
@@ -218,6 +226,7 @@
     font-size: 1.5em;
     font-weight: 700;
     color:#fff;
+    margin-top: 20px;
 }
 
 .header-content .drop-menu ul li:hover{
@@ -226,7 +235,7 @@
 }
 
 .header-content:has(ul li:hover) .drop-menu{
-   background-color: rgba(240, 248, 255, 0.568);
+   background-color: rgba(182, 211, 236, 0.404);
    backdrop-filter: blur(5px);
 }
 
@@ -254,8 +263,7 @@
     }
     .header-content .drop-menu{
         transform-origin:100% 0% ;
-        border-radius:30px;
-        width: 300px;
-        
+        border-radius:5px;
+        width: 100%;
     }
 }
